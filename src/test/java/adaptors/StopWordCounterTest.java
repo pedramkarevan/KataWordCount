@@ -17,5 +17,6 @@ class StopWordCounterTest {
 
     @Test
     void wordCounter() {
+        assertEquals(3,new Count().getUserInputCount("Mary has lamb"));
     }
 }

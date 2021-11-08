@@ -33,7 +33,7 @@ public class InputScanner implements InputRead {
         }
 		catch (IOException e)
         {
-            e.printStackTrace();
+           System.out.println("File Not found");
         }
 
         return contentBuilder.toString();
