@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StringValidationImplTest {
 
     private StringValidation stringValidation;
+
     @BeforeEach
     void setUp() {
         stringValidation= new StringValidationImpl();
@@ -18,6 +19,11 @@ class StringValidationImplTest {
     @DisplayName("User input validation")
     @Test
     void isStringValid() {
-        assertEquals(false ,stringValidation.isStringValid("Mary had a little lamb 2"),"User input validation");
-    }
+
+        assertAll("User input validation assert all",
+                () -> assertEquals(false ,stringValidation.isStringValid("Mary had a little lamb 2")),
+                () -> assertEquals(true ,stringValidation.isStringValid("Mary had a little lamb ")),
+                () -> assertEquals(false,stringValidation.isStringValid("")));
+
+         }
 }

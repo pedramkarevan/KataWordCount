@@ -1,5 +1,5 @@
 package wordcount.services.interfaces;
 
-public interface InputReadable {
+public interface InputRead {
     String read();
 }
