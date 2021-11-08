@@ -26,12 +26,12 @@ public class InputFileCounter implements WordCount {
             String mapString = stopWord.stopWordMapper(userInput, stopWords);
             return new Count().getUserInputCount(mapString);
         }
-        throw new IllegalArgumentException("File Input String is not valid!");
+        throw new IllegalArgumentException("File input string is not valid!");
 
 
     }
 
-    private String getFileScannerInput() throws IOException {
+    public String getFileScannerInput() throws IOException {
         String userInput =inputRead.inputFileRead("src/main/resources/mytext.txt");
             if (userInput == null || userInput.isEmpty())
                 userInput = inputRead.read();
