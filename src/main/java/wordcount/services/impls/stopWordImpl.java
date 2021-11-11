@@ -13,11 +13,11 @@ public class stopWordImpl implements StopWord {
         String[] userInputs = getSplit(userInput);
         String[] stops = getSplit(stopWord);
 
-        return  getMapString(userInputs, stops);
+        return  getMappedString(userInputs, stops);
     }
 
 
-    private String getMapString(String[] userInputs, String[] stops) {
+    private String getMappedString(String[] userInputs, String[] stops) {
         ArrayList<String> stopWords = new ArrayList<String>(Arrays.asList(stops));
         String new_str = "";
         for (String words : userInputs) {
