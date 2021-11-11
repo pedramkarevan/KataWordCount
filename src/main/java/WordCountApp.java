@@ -9,10 +9,10 @@ import wordcount.services.interfaces.InputRead;
 import wordcount.services.interfaces.StopWord;
 import wordcount.services.interfaces.StringValidation;
 import wordcount.services.interfaces.UniqueWord;
-
 import java.io.IOException;
 
 public class WordCountApp {
+
 
 
     public static void main(String[] arg) throws IOException {
@@ -23,7 +23,7 @@ public class WordCountApp {
         UniqueWord uniqueWord =new UniqueWordImpl();
 
         System.out.printf("Number of words :"+inputFileCounter.wordCounter()
-        +", unique:"+ new UniqueWordCounter(inputFileCounter,stringValidation,uniqueWord).wordCounter());
+        +", unique:"+ new UniqueWordCounter(inputFileCounter,stringValidation,uniqueWord).uniqueCounter());
 
     }
 

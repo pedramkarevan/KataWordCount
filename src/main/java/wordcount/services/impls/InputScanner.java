@@ -9,9 +9,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-/**
- * Reading user input by Scanner
- */
+
 
 public class InputScanner implements InputRead {
     @Override
@@ -26,16 +24,14 @@ public class InputScanner implements InputRead {
     @Override
     public String inputFileRead(String filePath) {
         StringBuilder contentBuilder = new StringBuilder();
-
-        try (Stream stream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8))
-        {
-            stream.forEach(s -> contentBuilder.append(s).append(" "));
-        }
-		catch (IOException e)
-        {
-           System.out.println("File Not found");
-        }
-
+        FileReader(filePath, contentBuilder);
         return contentBuilder.toString();
+    }
+
+    private void FileReader(String filePath, StringBuilder contentBuilder) {
+        try (Stream stream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8)) {
+            stream.forEach(s -> contentBuilder.append(s).append(" "));}
+		catch (IOException e){
+           System.out.println("File Not found");}
     }
 }

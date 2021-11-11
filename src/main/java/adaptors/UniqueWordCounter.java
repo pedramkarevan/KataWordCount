@@ -3,10 +3,9 @@ package adaptors;
 import wordcount.services.interfaces.InputRead;
 import wordcount.services.interfaces.StringValidation;
 import wordcount.services.interfaces.UniqueWord;
-
 import java.io.IOException;
 
-public class UniqueWordCounter implements WordCount {
+public class UniqueWordCounter {
     private InputFileCounter inputFileCounter;
     private StringValidation stringValidation;
     private UniqueWord uniqueWord;
@@ -19,13 +18,16 @@ public class UniqueWordCounter implements WordCount {
         this.uniqueWord = uniqueWord;
     }
 
-    @Override
-    public int wordCounter() throws IOException {
+
+    public int uniqueCounter() throws IOException {
         String userInput = inputFileCounter.getFileScannerInput();
-        if (stringValidation.isStringValid(userInput)) {
-            String uniqueString = uniqueWord.uniqueWordMapper(userInput);
-            return new Count().getUserInputCount(uniqueString);
-        }
+        if (stringValidation.isStringValid(userInput))
+            return wordHandler(userInput);
         throw new IllegalArgumentException("File input string is not valid!");
+    }
+
+    private int wordHandler(String userInput) {
+        String uniqueString = uniqueWord.uniqueWordMapper(userInput);
+        return new Count().getUserInputCount(uniqueString);
     }
 }

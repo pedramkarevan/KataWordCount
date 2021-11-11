@@ -24,10 +24,14 @@ public class StopWordCounter implements WordCount {
     public int wordCounter() throws IOException {
         String userInput = inputRead.read();
         if (stringValidation.isStringValid(userInput)) {
-            String stopWords = inputRead.inputFileRead("src/main/resources/stopwords.txt");
-            String mapString = stopWord.stopWordMapper(userInput, stopWords);
-            return new Count().getUserInputCount(mapString);
+            return wordHandler(userInput);
         }
         throw new IllegalArgumentException("Input String is not valid!");
+    }
+
+    private int wordHandler(String userInput) throws IOException {
+        String stopWords = inputRead.inputFileRead("src/main/resources/stopwords.txt");
+        String mapString = stopWord.stopWordMapper(userInput, stopWords);
+        return new Count().getUserInputCount(mapString);
     }
 }
